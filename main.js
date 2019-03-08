@@ -100,7 +100,7 @@ app.post('/search_medicalProvider', function(req, res) {
   var body = req.body;
   var queryStr = "SELECT provider_name FROM Med_medicalProvider";
     queryStr += 'INNER JOIN Med_Insurance ON Med_Insurance.insurance_id = Med_medicalProvider.insurance_id_fk';
-    queryStr += ' WHERE player.player_id = "' + body.identification + '";';
+    queryStr += ' WHERE Med_Insurance.identification = "' + body.identification + '";';
 
   connection.query(queryStr, function(err, rows, fields) {
     if (err) {
