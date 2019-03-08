@@ -46,22 +46,6 @@ connection.connect(function(err) {
  ******************************************************
  */
 
-//create Med_Insurance table 
-/*
-connection.query("DROP TABLE IF EXISTS Med_Insurance", function(err)) {
-  var createString = "CREATE TABLE IF NOT EXISTS Med_Insurance(" +
-  "insurance_id INT AUTO_INCREMENT," +
-  "insurance_company VARCHAR(255) NOT NULL," +
-  "identification VARCHAR(255) NOT NULL," +
-  "member VARCHAR(255) NOT NULL," +
-  "PRIMARY KEY(insurance_id)";
-   connection.query(createString, function(err) {
-      if (err) console.log(err);
-      console.log("Med_Insurance table created");
-   });
-}
-*/
-
 // Home/Index Page
 app.get('/', function(req, res) {
   res.render('index', {title: 'CS361 Week - Group 24'});
@@ -72,6 +56,66 @@ app.get('/story1', function(req, res) {
   res.render('medform');
 });
 
+//Get data from mySQL tables
+var selectTableData = function(res, table) {
+  var ctx = {};
+  pool.query('SELECT * FROM ' + table, function(err, rows, fields) {
+    if (err) {
+      console.log(err);
+      return;
+    }
+    ctx.results = rows;
+    res.send(ctx);
+  });
+};
+
+app.get('/insurance', function(req,res){
+        selectTableData(res,'Med_Insurance');
+});
+
+app.get('/medicalProvider',function(req,res){
+        selectTableData(res,'Med_medicalProvider');
+});
+
+app.get('/practitioner', function(req,res){
+        selectTableData(res,'Med_Practitioner');
+});
+
+app.get('/patient',function(req,res){
+        selectTableData(res,'Med_Patient');
+});
+
+app.get('/assignpractitioner',function(req,res){
+        selectTableData(res,'Med_AssignPractitioner');
+});
+
+app.get('/appointment',function(req,res){
+        selectTableData(res,'Med_Appointment');
+});
+
+//Test if we can get the correct medical providers with the given insurance identification
+app.post('/search_medicalProvider', function(req, res) {
+
+  var ctx = {};
+  var body = req.body;
+  var queryStr = "SELECT provider_name FROM Med_medicalProvider";
+    queryStr += 'INNER JOIN Med_Insurance ON Med_Insurance.insurance_id = Med_medicalProvider.insurance_id_fk';
+    queryStr += ' WHERE player.player_id = "' + body.identification + '";';
+
+  connection.query(queryStr, function(err, rows, fields) {
+    if (err) {
+      console.log(err);
+      console.log(queryStr);
+      ctx.results = err;
+      res.send(ctx);
+      return;
+    }
+    console.log(queryStr);
+    ctx.results = rows;
+    res.send(ctx);
+  });
+
+});
 
 // story 2 basic implementation for testing
 app.get('/story2', function(req, res) {
