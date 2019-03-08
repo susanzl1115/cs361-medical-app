@@ -94,8 +94,17 @@ app.get('/appointment',function(req,res){
 });
 
 //Test if we can get the correct medical providers with the given insurance identification
-app.post('/search_medicalProvider', function(req, res) {
-
+app.post('/post-loopback', function(req, res) {
+ var qParams = [];
+  for (var p in req.body){
+    qParams.push({'name':p,'value':req.body[p]})
+  }
+  console.log(qParams);
+  console.log(req.body);
+  var context = {};
+  context.dataList = qParams;
+  res.render('post-loopback', context);
+ /*
   var ctx = {};
   var body = req.body;
   var queryStr = "SELECT provider_name FROM Med_medicalProvider";
@@ -114,6 +123,7 @@ app.post('/search_medicalProvider', function(req, res) {
     ctx.results = rows;
     res.send(ctx);
   });
+  */
 
 });
 
