@@ -23,9 +23,11 @@ app.use(express.static('public', {extensions: ['html']}));
 var mysql = require('mysql');
 var connection = mysql.createConnection({
   host: 'classmysql.engr.oregonstate.edu',
-  user: 'cs361_lucassha',
-  password: '2333',
-  database: 'cs361_lucassha'
+  //user: 'cs361_lucassha',
+  user: 'zhangl8-db',
+  password: ' 95Ig3k9VNjmPDGJ3',
+  //password: '2333',
+  database: 'zhangl8-db'
 });
 
 connection.connect(function(err) {
@@ -43,6 +45,22 @@ connection.connect(function(err) {
  *
  ******************************************************
  */
+
+//create Med_Insurance table 
+/*
+connection.query("DROP TABLE IF EXISTS Med_Insurance", function(err)) {
+  var createString = "CREATE TABLE IF NOT EXISTS Med_Insurance(" +
+  "insurance_id INT AUTO_INCREMENT," +
+  "insurance_company VARCHAR(255) NOT NULL," +
+  "identification VARCHAR(255) NOT NULL," +
+  "member VARCHAR(255) NOT NULL," +
+  "PRIMARY KEY(insurance_id)";
+   connection.query(createString, function(err) {
+      if (err) console.log(err);
+      console.log("Med_Insurance table created");
+   });
+}
+*/
 
 // Home/Index Page
 app.get('/', function(req, res) {
