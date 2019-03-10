@@ -9,7 +9,7 @@ var app = express();
 // import handlebars and bodyParser
 var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 app.engine('handlebars', handlebars.engine);
-app.set('port', 3391);
+app.set('port', 3396);
 app.set('view engine', 'handlebars');
 
 // tells app to either use urlencoded or json depending on what it parses
