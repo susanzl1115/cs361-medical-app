@@ -1,36 +1,145 @@
-<!DOCTYPE html>
-<html>
+<!-- code for header begins here -->
+<div id="header" class="container-fluid">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="p-2 bd-highlight">
+          <strong style="padding-left:10px;" class="blk">Medical App</strong> </br>
+          <span style="padding-left:10px;" class="dk-blue">CS361 - Group Project </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-<head>
-    <title>Home Page</title>
-</head>
-
-<body>
-
-    <h2>{{title}}</h2>
-
-
-
-    <table>
-        <thead>
-            <th>First Name</th>
-            <th>Last Name</th>
-            <th>DOB</th>
-        </thead>
-
-        <tbody>
-            {{#each results}}
-            <tr>
-                <td>{{this.first_name}}</td>
-                <td>{{this.last_name}}</td>
-                <td>{{this.dob}}</td>
-            </tr>
-            {{/each}}
-        </tbody>
+<div class="col-sm-6">
+  <div class="d-flex flex-row align-items-center justify-content-end">
+    <div class="p-2 bd-highlight">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link blk" href="/"><strong>Index</strong></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
 
 
-    </table>
+<div class="container">
+  <div class="row align-items-center">
+    <div class="col-sm-12 text-center">
+      <h1 class="blk"> Health History Questionnaire </h1>
+      <div class="dk-blue"> Story 3 </div>
+    </div>
+  </div>
+</div>
 
-</body>
 
-</html>
+<div class="container">
+  <div class="form-group">
+    <!--Will change the name of this heading -->
+    <h4> Integer Input Questions </h4>
+    {{#each question}}
+    <div class="row">
+      <div class="col-sm-2">
+        <label>
+          <p>{{question}}</p><input class="form-control"> </input>
+        </label>
+      </div>
+    </div>
+    {{/each}}
+    <!--Will change the name of this heading -->
+    <h4> Radio (Y/N) Input Questions </h4>
+    {{#each question}}
+    <div class="container">
+      <strong> {{question.category}} </strong>
+      <div class="row">
+        <div class="col-sm-12">
+          <label> Question Number {{question.number}}
+            <p>{{question}}</p>
+            <div class="form-check">
+              <label class="form-check-label"> <input type="checkbox"> </input> Y </label>
+              <label class="form-check-label"> <input type="checkbox"> </input> N </label>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    <!--Will change the name of this heading -->
+    <h4> Radio (Frequency) Input Questions </h4>
+    {{#each question}}
+    <div class="container">
+      <strong> {{question.category}} </strong>
+      <div class="row">
+        <div class="col-sm-12">
+          <label> Question Number {{question.number}}
+            <p>{{question}}</p>
+            <div class="form-check">
+              <label class="form-check-label"> <input type="checkbox"> </input> Never </label>
+              <label class="form-check-label"> <input type="checkbox"> </input> Rarely </label>
+              <label class="form-check-label"> <input type="checkbox"> </input> Occasionally </label>
+              <label class="form-check-label"> <input type="checkbox"> </input> Sometimes </label>
+              <label class="form-check-label"> <input type="checkbox"> </input> Frequently </label>
+              <label class="form-check-label"> <input type="checkbox"> </input> Often </label>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    <h4> Radio (Intensity) Input Questions </h4>
+    {{#each question}}
+    <div class="container">
+      <strong> {{question.category}} </strong>
+      <div class="row">
+        <div class="col-sm-12">
+          <label> Question Number {{question.number}}
+            <p>{{question}}</p>
+            <div class="form-check">
+              <label class="form-check-label">
+                <input type="checkbox"> </input> None </label>
+              <label class="form-check-label">
+                <input type="checkbox"> </input> Very Little </label>
+              <label class="form-check-label">
+                <input type="checkbox"> </input> Some </label>
+              <label class="form-check-label">
+                <input type="checkbox"> </input> More than Average </label>
+              <label class="form-check-label">
+                <input type="checkbox"> </input> A Lot </label>
+            </div>
+          </label>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+    <!-- code for footer goes here -->
+    <div id="footer" class="container-fluid">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="single-post-content-wrapper p-3">
+              <span class="wht">
+                This represents Group 24's group project.
+              </span>
+            </div>
+          </div>
+          <div class="w-100"></div>
+          <div class="col-sm-12">
+            <div class="d-flex flex-row align-items-center justify-content-center">
+              <div class="p-2 bd-highlight">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a class="nav-link wht" href="/"><strong>Index</strong></a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </body>
+
+  </html>
