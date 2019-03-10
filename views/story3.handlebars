@@ -42,15 +42,10 @@
         {{#each question}}
             <div class="row">
                 <div class="col-sm-2">
-                    <label>Age<input class="form-control"> </input></label>
-                </div>
-                <div class="col-sm-1">
-                    <label> Height<input class="form-control"> </input></label>
-                </div>
-                <div class="col-sm-2">
-                    <label> Weight <input class="form-control"> </input> </label>
+                    <label><p>{{question}}</p><input class="form-control"> </input></label>
                 </div>
             </div>
+        {{/each}}
         <!--Will change the name of this heading -->
         <h4> Radio (Y/N) Input Questions </h4>
         {{#each question}}
@@ -59,6 +54,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label> Question Number {{question.number}}
+                            <p>{{question}}</p>
                             <div class = "form-check">
                               <label class="form-check-label"> <input type="checkbox"> </input> Y </label>
                               <label class="form-check-label"> <input type="checkbox"> </input> N </label>
@@ -76,6 +72,7 @@
                 <div class="row">
                     <div class="col-sm-12">
                         <label> Question Number {{question.number}}
+                            <p>{{question}}</p>
                             <div class = "form-check">
                               <label class="form-check-label"> <input type="checkbox"> </input> Never </label>
                               <label class="form-check-label"> <input type="checkbox"> </input> Rarely </label>
@@ -96,6 +93,7 @@
               <div class="row">
                 <div class="col-sm-12">
                   <label> Question Number {{question.number}}
+                    <p>{{question}}</p>
                     <div class = "form-check">
                       <label class="form-check-label"> 
                         <input type="checkbox"> </input> None </label>
