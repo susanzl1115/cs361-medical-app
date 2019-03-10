@@ -94,7 +94,6 @@ app.get('/story4', function(req, res) {
   INNER JOIN Med_medicalProvider mmp ON mp.insurance_id = mmp.insurance_id_fk \
   INNER JOIN Med_Practitioner mpv ON mpv.provider_id_fk = mmp.provider_id \
   INNER JOIN Med_AssignPractitioner map ON map.practitioner_id_fk = mpv.practitioner_id \
-  WHERE map.patient_id_fk = 1 \
   LIMIT 0, 30';
 
   connection.query(query, function(error, results, fields) {
