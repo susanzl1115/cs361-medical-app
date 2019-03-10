@@ -1,53 +1,57 @@
 <!-- code for header begins here -->
 <div id="header" class="container-fluid">
-    <div class="container-fluid">
-        <div class="row"> 
-            <div class="col-sm-6">
-                <div class="p-2 bd-highlight">
-                    <strong style="padding-left:10px;" class="blk" >Medical App</strong> </br >
-                    <span style="padding-left:10px;" class="dk-blue">CS361 - Group Project </span>
-                </div>
-            </div>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="p-2 bd-highlight">
+          <strong style="padding-left:10px;" class="blk">Medical App</strong> </br>
+          <span style="padding-left:10px;" class="dk-blue">CS361 - Group Project </span>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 
 <div class="col-sm-6">
-    <div class="d-flex flex-row align-items-center justify-content-end">
-        <div class="p-2 bd-highlight">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link blk" href="/"><strong>Index</strong></a>
-                </li>
-            </ul>
-        </div>
+  <div class="d-flex flex-row align-items-center justify-content-end">
+    <div class="p-2 bd-highlight">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link blk" href="/"><strong>Index</strong></a>
+        </li>
+      </ul>
     </div>
+  </div>
 </div>
 <h3>Available Providers</h3>
 <table>
   <thead>
-    <th>Provider ID</th>
-    <th>Facility Name</th>
-    <th>Physician Name</th>
-    <th>Copay Amount</th>
-    <th>Street Address</th>
-    <th>City</th>
-    <th>State</th>
-    <th>Zip Code</th>
+    <th>Insurance Company</th>
+    <th>Identification</th>
+    <th>Member</th>
+    <th>Provider</th>
+    {{!-- <th>Street Address</th> --}}
+    {{!-- <th>City</th> --}}
+    {{!-- <th>State</th> --}}
+    {{!-- <th>Zip Code</th> --}}
   </thead>
   <tbody>
-  {{#each provider}}
-  <tr>
-    <td>{{id}}</td>
-    <td>{{facName}}</td>
-    <td>{{docName}}</td>
-    <td>{{copay}}</td>
-    <td>{{street}}</td>
-    <td>{{city}}</td>
-    <td>{{state}}</td>
-    <td>{{zip}}</td>
-  </tr>
-  {{/each}}
+    {{#each results}}
+    <tr>
+      {{!-- <td>{{id}}</td>
+      <td>{{facName}}</td>
+      <td>{{docName}}</td>
+      <td>{{copay}}</td>
+      <td>{{street}}</td>
+      <td>{{city}}</td>
+      <td>{{state}}</td>
+      <td>{{zip}}</td> --}}
+      <td>{{insurance_company}}</td>
+      <td>{{identification}}</td>
+      <td>{{member}}</td>
+      <td>{{provider_name}}</td>
+    </tr>
+    {{/each}}
   </tbody>
 </table>
 <!-- code for footer goes here -->
@@ -56,26 +60,27 @@
     <div class="row">
       <div class="col-sm-12">
         <div class="single-post-content-wrapper p-3">
-          <span class="wht" > 
+          <span class="wht">
             This represents Group 24's group project.
-                    </span>
+          </span>
         </div>
       </div>
       <div class="w-100"></div>
       <div class="col-sm-12">
-          <div class="d-flex flex-row align-items-center justify-content-center">
-            <div class="p-2 bd-highlight">
-              <ul class="nav">
-                <li class="nav-item">
-                  <a class="nav-link wht" href="/"><strong>Index</strong></a>
-                </li>
-              </ul>
-            </div>
+        <div class="d-flex flex-row align-items-center justify-content-center">
+          <div class="p-2 bd-highlight">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link wht" href="/"><strong>Index</strong></a>
+              </li>
+            </ul>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
+</div>
 </body>
+
 </html>

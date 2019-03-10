@@ -66,30 +66,12 @@ app.get('/story1', function(req, res) {
 // story 2 basic implementation for testing
 app.get('/story2', function(req, res) {
   const query = 'SELECT * from users';
-  // const query =
-  //     'SELECT mp.insurance_company, mp.identification, mp.member,
-  //     mmp.provider_name \
-  // FROM Med_Insurance mp \
-  // INNER JOIN Med_medicalProvider mmp ON mp.insurance_id = mmp.insurance_id_fk
-  // \
-  // INNER JOIN Med_Practitioner mpv ON mpv.provider_id_fk = mmp.provider_id \
-  // INNER JOIN Med_AssignPractitioner map ON map.practitioner_id_fk =
-  // mpv.practitioner_id \
-  // WHERE map.patient_id_fk = 1 \
-  // LIMIT 0, 30';
 
   connection.query(query, function(error, results, fields) {
     if (error) throw error;
     // pass sql results and title into the handlebars page
     res.render('story2', {title: 'Story 2', results: results});
   });
-
-  // connection.query(query, function(error, results, fields) {
-  //   if (error) throw error;
-  //   // print out the results for now
-  //   console.log(results);
-  //   res.render('story2');
-  // });
 });
 
 
@@ -106,11 +88,19 @@ app.get('/story3', function(req, res) {
 
 // story 4 basic implementation for testing
 app.get('/story4', function(req, res) {
-  const query = 'SELECT * from users';
+  const query =
+      'SELECT mp.insurance_company, mp.identification, mp.member, mmp.provider_name \
+  FROM Med_Insurance mp \
+  INNER JOIN Med_medicalProvider mmp ON mp.insurance_id = mmp.insurance_id_fk \
+  INNER JOIN Med_Practitioner mpv ON mpv.provider_id_fk = mmp.provider_id \
+  INNER JOIN Med_AssignPractitioner map ON map.practitioner_id_fk = mpv.practitioner_id \
+  WHERE map.patient_id_fk = 1 \
+  LIMIT 0, 30';
 
   connection.query(query, function(error, results, fields) {
     if (error) throw error;
     // pass sql results and title into the handlebars page
+    console.log(results);
     res.render('story4', {title: 'Story 4', results: results});
   });
 });
