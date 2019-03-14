@@ -1,0 +1,101 @@
+
+<div id="header" class="container-fluid">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="p-2 bd-highlight">
+                    <strong style="padding-left:10px;" class="blk">Medical App</strong> </br >
+                    <span style="padding-left:10px;" class="dk-blue">CS361 - Group Project </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-sm-6">
+    <div class="d-flex flex-row align-items-center justify-content-end">
+        <div class="p-2 bd-highlight">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link blk" href="/"><strong>Index</strong></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<h2>Available Practitioner with the given issurance identification</h2>
+<body>
+    <form form class="form-horizontal episode">
+        <!--
+                <label for="identification">Insurance Id:</label>
+                <input type="text" name="identification" id="identification">
+        -->
+        <input id="identification" class="col-sm-10" type="text">
+
+        <button id="searchbyname" class="search btn btn-submit" onclick="alert('clicked')">Search</button>
+    </form>
+    <br />
+    <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="\js\index.js"></script>
+</body>
+
+
+<h3 id="txtHint"><b>Practitioners covered by the insurance will be listed here.</b></h3>
+<ul id="search_result_byname"></ul>
+<div id="practitioners"></div>
+
+
+
+<table id="tb_provider">
+    <tr>
+        <th>Provider Name</th>
+        <th>Practitioner Name</th>
+    </tr>
+    {{#each providerID}}
+    <tr>
+        <td>{{provider_name}}</td>
+        <td>{{practitioner_name}}</td>
+    </tr>
+    {{/each}}
+</table>
+
+
+<div id="footer" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="single-post-content-wrapper p-3">
+                    <span class="wht">
+                        This represents Group 24's group project.
+                    </span>
+                </div>
+            </div>
+            <div class="w-100"></div>
+            <div class="col-sm-12">
+                <div class="d-flex flex-row align-items-center justify-content-center">
+                    <div class="p-2 bd-highlight">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link wht" href="/"><strong>Index</strong></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<h1>CS361 - Group Project</h1>
+<h2>Search for practitioner available by Insurance Identification </h2>
+<form class="form-horizontal episode">
+    <input id="identification" class="col-sm-10" type="text">
+    <button id="searchbyname" class="search btn btn-submit">Search</button>
+</form>
+
+<h3>Practitioners available with the given insurance identification</h3>
+<ul id="search_result_byname"></ul>
+
+
