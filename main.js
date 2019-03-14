@@ -108,7 +108,7 @@ app.get('/story4', function(req, res) {
     res.render('story4', {title: 'Story 4', providerID: results});
   });
 });
-
+// story 6 http get request implementation
 app.get('/story6', function (req, res) {
     const query =
       'SELECT provider_name, practitioner_name FROM Med_medicalProvider INNER JOIN Med_Insurance ON Med_Insurance.insurance_id = Med_medicalProvider.insurance_id_fk INNER JOIN Med_Practitioner ON Med_Practitioner.provider_id_fk = Med_medicalProvider.provider_id';
@@ -121,7 +121,7 @@ app.get('/story6', function (req, res) {
     });
 });
 
-// story 6 basic implementation for testing
+// story 6 search bar feature implementation
 app.post('/search_name', function (req, res) {
     var ctx = {};   
     var body = req.body;
